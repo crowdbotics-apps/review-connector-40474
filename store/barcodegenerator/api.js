@@ -1,8 +1,12 @@
-import axios from "axios"
+import axios from "axios";
 const barcodegenerator = axios.create({
   baseURL: "https://barcode.codereadr.com/api",
-  headers: { Accept: "application/json", "Content-Type": "application/json" }
-})
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  }
+});
+
 function barcodegenerator_get__read(payload) {
   return barcodegenerator.get(`/`, {
     params: {
@@ -16,6 +20,9 @@ function barcodegenerator_get__read(payload) {
       barcodetype: payload.barcodetype,
       filetype: payload.filetype
     }
-  })
+  });
 }
-export const apiService = { barcodegenerator_get__read }
+
+export const apiService = {
+  barcodegenerator_get__read
+};
