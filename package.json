@@ -12,7 +12,6 @@
     "web:build": "./node_modules/.bin/webpack --config ./webpack.config.js --color --mode production"
   },
   "dependencies": {
-    "@modules/chat": "file:./modules/chat/",
     "@react-native-async-storage/async-storage": "1.17.9",
     "@react-native-community/cameraroll": "^4.1.2",
     "@react-native-community/checkbox": "0.5.10",
