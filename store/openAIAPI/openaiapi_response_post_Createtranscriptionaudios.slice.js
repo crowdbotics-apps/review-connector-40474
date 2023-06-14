@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { apiService } from "./api"
-export const veetingintegration_post_api_v6_meeting_create = createAsyncThunk(
-  "veetingintegration_response_post_CreateMeetings/veetingintegration_post_api_v6_meeting_create",
+export const openaiapi_post_v1_audio_transcriptions_create = createAsyncThunk(
+  "openaiapi_response_post_Createtranscriptionaudios/openaiapi_post_v1_audio_transcriptions_create",
   async payload => {
-    const response = await apiService.veetingintegration_post_api_v6_meeting_create(
+    const response = await apiService.openaiapi_post_v1_audio_transcriptions_create(
       payload
     )
     return response.data
   }
 )
 const initialState = { entities: [], api: { loading: "idle", error: null } }
-const veetingintegration_response_post_CreateMeetingsSlice = createSlice({
-  name: "veetingintegration_response_post_CreateMeetings",
+const openaiapi_response_post_CreatetranscriptionaudiosSlice = createSlice({
+  name: "openaiapi_response_post_Createtranscriptionaudios",
   initialState,
   reducers: {},
   extraReducers: {
-    [veetingintegration_post_api_v6_meeting_create.pending]: (
+    [openaiapi_post_v1_audio_transcriptions_create.pending]: (
       state,
       action
     ) => {
@@ -23,7 +23,7 @@ const veetingintegration_response_post_CreateMeetingsSlice = createSlice({
         state.api.loading = "pending"
       }
     },
-    [veetingintegration_post_api_v6_meeting_create.fulfilled]: (
+    [openaiapi_post_v1_audio_transcriptions_create.fulfilled]: (
       state,
       action
     ) => {
@@ -32,7 +32,7 @@ const veetingintegration_response_post_CreateMeetingsSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [veetingintegration_post_api_v6_meeting_create.rejected]: (
+    [openaiapi_post_v1_audio_transcriptions_create.rejected]: (
       state,
       action
     ) => {
@@ -44,6 +44,6 @@ const veetingintegration_response_post_CreateMeetingsSlice = createSlice({
   }
 })
 export default {
-  veetingintegration_post_api_v6_meeting_create,
-  slice: veetingintegration_response_post_CreateMeetingsSlice
+  openaiapi_post_v1_audio_transcriptions_create,
+  slice: openaiapi_response_post_CreatetranscriptionaudiosSlice
 }
