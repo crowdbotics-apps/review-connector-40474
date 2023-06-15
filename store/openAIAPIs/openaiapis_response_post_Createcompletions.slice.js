@@ -1,32 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { apiService } from "./api"
-export const openaiapi_post_v1_completions_create = createAsyncThunk(
-  "openaiapi_response_post_Createcompletions/openaiapi_post_v1_completions_create",
+export const openaiapis_post_v1_completions_create = createAsyncThunk(
+  "openaiapis_response_post_Createcompletions/openaiapis_post_v1_completions_create",
   async payload => {
-    const response = await apiService.openaiapi_post_v1_completions_create(
+    const response = await apiService.openaiapis_post_v1_completions_create(
       payload
     )
     return response.data
   }
 )
 const initialState = { entities: [], api: { loading: "idle", error: null } }
-const openaiapi_response_post_CreatecompletionsSlice = createSlice({
-  name: "openaiapi_response_post_Createcompletions",
+const openaiapis_response_post_CreatecompletionsSlice = createSlice({
+  name: "openaiapis_response_post_Createcompletions",
   initialState,
   reducers: {},
   extraReducers: {
-    [openaiapi_post_v1_completions_create.pending]: (state, action) => {
+    [openaiapis_post_v1_completions_create.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [openaiapi_post_v1_completions_create.fulfilled]: (state, action) => {
+    [openaiapis_post_v1_completions_create.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities.push(action.payload)
         state.api.loading = "idle"
       }
     },
-    [openaiapi_post_v1_completions_create.rejected]: (state, action) => {
+    [openaiapis_post_v1_completions_create.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
@@ -35,6 +35,6 @@ const openaiapi_response_post_CreatecompletionsSlice = createSlice({
   }
 })
 export default {
-  openaiapi_post_v1_completions_create,
-  slice: openaiapi_response_post_CreatecompletionsSlice
+  openaiapis_post_v1_completions_create,
+  slice: openaiapis_response_post_CreatecompletionsSlice
 }
